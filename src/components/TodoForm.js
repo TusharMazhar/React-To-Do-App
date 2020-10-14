@@ -4,18 +4,26 @@ import '../App.css'
 const TodoForm = () => {
     const [input,setInput]=useState('')
     const [todos,setTodos]=useState([])
-    const [edit,setEdit]=useState(false)
+   
     
    
 const  formSubmit=e=>{
     e.preventDefault();
+  
     addItem(input);
     setInput('');
 
 }
 const  addItem=text=>{
-    const valueItems=[...todos,text]
-    setTodos(valueItems)
+   
+    if(text===''){
+        return 0;
+    }
+        
+  
+        const valueItems=[...todos,text]
+        setTodos(valueItems)
+       
    
 }
 
@@ -24,12 +32,7 @@ const deleteHandler=(value)=>{
     setTodos(items)
 
 }
-const editHandler=(value)=>{
 
-    setEdit(true)
-
-     
-}
  
 
 
@@ -45,25 +48,23 @@ const editHandler=(value)=>{
            <button  className="button" type="submit">Add</button>
      
          </form> 
-        
-         {
-             todos.map((i,index)=>{
+          { 
+          
+
+              todos.map((i,index)=>{
              return <div key={index} className="list">
                     
                     <span className="item">{i}</span>
                     <button onClick={()=>deleteHandler(i)}>Remove</button>
-                    <button onChange={()=>editHandler(i)}>Edit</button>
                    
-                    {
-
-                      edit? <input className="editinput" type="text"/>
-                    
-                    
-                    :''}
 
                  </div>
              })
-         }
+          
+          
+          
+        }
+        
          
       
     </div>  
