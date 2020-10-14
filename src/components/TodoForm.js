@@ -2,18 +2,62 @@ import React,{useState} from 'react'
 
 const TodoForm = () => {
     const [input,setInput]=useState('')
+    const [todos,setTodos]=useState([])
+    
+   
+const  formSubmit=e=>{
+    e.preventDefault();
+    addItem(input);
+    setInput('');
+
+}
+const  addItem=text=>{
+    const valueItems=[...todos,text]
+    setTodos(valueItems)
+   
+}
+
+const deleteHandler=(value)=>{
+    const items=todos.filter(currentValue=>currentValue!==value)
+    setTodos(items)
+
+}
+const editHandler=(value)=>{
+
+  
+
+   
+
+    
+}
+ 
+
+
+   
     return (
-        <form className="todo-form">
-            <input 
-            type="text" 
-            value={input} 
-            placeholder="Add Items" 
-            name="text"
-            className="todo-input"
-            
-            />
-            <button type="button" className="todo-button">Add</button>
-        </form>
+
+    <div>
+        <form onSubmit={formSubmit}>
+         
+           <input type="text" value={input} name="text" onChange={(e)=>{
+               setInput(e.target.value)
+           }}/>
+           <button type="submit">Add</button>
+     
+         </form>  
+         {
+             todos.map((i,index)=>{
+             return <div>
+                    <span key={index}>{i}</span>
+                    <button onClick={()=>deleteHandler(i)}>Remove</button>
+                    <button onChange={()=>editHandler(i)}>Edit</button>
+
+                 </div>
+             })
+         }
+      
+    </div>  
+        
     )
 }
 
