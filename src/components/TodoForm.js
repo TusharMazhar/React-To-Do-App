@@ -40,22 +40,25 @@ const editHandler=(value)=>{
     <div className="container">
         <form onSubmit={formSubmit}>
          
-           <input type="text" value={input}  name="text" onChange={(e)=>{
+           <input className="input" type="text" value={input}  name="text" onChange={(e)=>{
                setInput(e.target.value)
            }}/>
-           <button type="submit">Add</button>
+           <button  className="button" type="submit">Add</button>
      
-         </form>  
+         </form> 
+        
          {
              todos.map((i,index)=>{
-             return <div>
-                    <span key={index}>{i}</span>
+             return <div key={index} className="list">
+                    
+                    <span className="item">{i}</span>
                     <button onClick={()=>deleteHandler(i)}>Remove</button>
                     <button onChange={()=>editHandler(i)}>Edit</button>
 
                  </div>
              })
          }
+         
       
     </div>  
         

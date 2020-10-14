@@ -2,21 +2,64 @@
   text-align: center;
 
 }
-.container{
+
+.container {
   width: 300px;
-  height:600px;
-  border:1px solid black;
-  background-color: rgb(113, 113, 202);
+  height: auto;
+ 
+ 
   justify-content: center;
   align-items: center;
   margin: auto;
-  
+
 
 }
-.App h1{
+.container .list{
+  width:100%;
+  display: inline-block;
+  background-color: rgb(218, 215, 206);
+  border:1px solid black
+}
+.container .list .item{
+    color:black;
+    font-size: 2rem;
+    margin-right:5px;
+    justify-content: center;
+}
+
+
+.container .list button{
+  color:black;
+  background-color: red;
+  display: inline-block;
+  text-align: center;
+  width:100%;
+  height:100%;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.App h1 {
   color: red;
   font-size: 3rem;
   font-weight: bolder;
   margin-bottom: 15px;
 
+}
+
+.input {
+  width: 70%;
+  display: inline-block;
+  height: 50px;
+  margin-top: 10px ;
+  padding: 10px
+}
+
+.button {
+  width: 30%;
+  display: inline-block;
+  height: 50px;
+  margin-top: 10px;
+  
+  padding: 10px
 }
