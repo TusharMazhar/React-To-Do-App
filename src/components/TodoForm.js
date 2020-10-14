@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import '../App.css'
 
 const TodoForm = () => {
     const [input,setInput]=useState('')
@@ -36,10 +37,10 @@ const editHandler=(value)=>{
    
     return (
 
-    <div>
+    <div className="container">
         <form onSubmit={formSubmit}>
          
-           <input type="text" value={input} name="text" onChange={(e)=>{
+           <input type="text" value={input}  name="text" onChange={(e)=>{
                setInput(e.target.value)
            }}/>
            <button type="submit">Add</button>
