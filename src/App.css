@@ -63,3 +63,10 @@
   
   padding: 10px
 }
+.ditinput{
+  display: inline-block;
+  width:20px;
+  height:10px;
+  color:black;
+  background-color: darkgray;
+}

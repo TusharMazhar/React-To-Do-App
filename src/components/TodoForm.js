@@ -4,6 +4,7 @@ import '../App.css'
 const TodoForm = () => {
     const [input,setInput]=useState('')
     const [todos,setTodos]=useState([])
+    const [edit,setEdit]=useState(false)
     
    
 const  formSubmit=e=>{
@@ -25,11 +26,9 @@ const deleteHandler=(value)=>{
 }
 const editHandler=(value)=>{
 
-  
+    setEdit(true)
 
-   
-
-    
+     
 }
  
 
@@ -40,7 +39,7 @@ const editHandler=(value)=>{
     <div className="container">
         <form onSubmit={formSubmit}>
          
-           <input className="input" type="text" value={input}  name="text" onChange={(e)=>{
+           <input placeholder="Enter Text Here...." className="input" type="text" value={input}  name="text" onChange={(e)=>{
                setInput(e.target.value)
            }}/>
            <button  className="button" type="submit">Add</button>
@@ -54,6 +53,13 @@ const editHandler=(value)=>{
                     <span className="item">{i}</span>
                     <button onClick={()=>deleteHandler(i)}>Remove</button>
                     <button onChange={()=>editHandler(i)}>Edit</button>
+                   
+                    {
+
+                      edit? <input className="editinput" type="text"/>
+                    
+                    
+                    :''}
 
                  </div>
              })
